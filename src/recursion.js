@@ -51,14 +51,17 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+	// base if 0 reached, number is even
 	if (n === 0) {
 		return true;
 	}
 
+	// base if 1 is reached, number is odd
 	if (n === 1) {
 		return false;
 	}
 
+	// recursion: absolute value of input subtracting 2 until 1 or 0 is reached
 	return isEven(Math.abs(n-2));
 };
 
@@ -66,6 +69,30 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+	// initialize negative check
+	let negative = false;
+
+	// if value is negative
+	if (n < 0) {
+		// remember for last iteration
+		negative = true;
+		// absolute value the input
+		n = Math.abs(n);
+	}
+
+	// base: if 0 is reached, return 0;
+	if (n === 0) {
+		return 0;
+	}
+
+	// remember if intial input is negative
+	if (negative) {
+		// multiply final value by -1;
+		return -((n-1) + sumBelow(n-1));
+	} else {
+		// recurse the directly below integer with the next;
+		return (n-1) + sumBelow(n-1);
+	}
 };
 
 // 6. Get the integers within a range (x, y).
