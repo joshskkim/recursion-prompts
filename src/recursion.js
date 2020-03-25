@@ -98,6 +98,20 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+	let back
+	// base case: when x === y
+	if (x === y - 1) {
+		// return the array
+		return x;
+	}
+
+	if (x > y) {
+
+	}
+	x++;
+
+	// return array with x and recursed range with x + 1
+	return [x].splice(1,0,(range(x,y)));
 };
 
 // 7. Compute the exponent of a number.
